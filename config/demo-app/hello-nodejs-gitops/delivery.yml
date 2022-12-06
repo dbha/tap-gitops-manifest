@@ -26,7 +26,7 @@ spec:
         carto.run/workload-name: hello-nodejs-gitops
     spec:
       containers:
-      - image: harborapp.shared.lab.pksdemo.net/workloads/supply-chain/hello-nodejs-gitops-demo-app@sha256:497f3082f2981b82e533b3a80ebeea54a92699c4e02c1558e755007ec24ca679
+      - image: harborapp.shared.lab.pksdemo.net/workloads/supply-chain/hello-nodejs-gitops-demo-app@sha256:0215da9616b1c3169c5d9316bc3d79ab8082b43ad4fdb00124ea079da96bef30
         name: workload
         resources: {}
         securityContext:
