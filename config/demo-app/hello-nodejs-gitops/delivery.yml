@@ -8,7 +8,6 @@ metadata:
   labels:
     app.kubernetes.io/part-of: hello-nodejs-gitops
     apps.tanzu.vmware.com/has-tests: "true"
-    apps.tanzu.vmware.com/scan-type: critical
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/component: run
     carto.run/workload-name: hello-nodejs-gitops
@@ -23,12 +22,11 @@ spec:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: hello-nodejs-gitops
         apps.tanzu.vmware.com/has-tests: "true"
-        apps.tanzu.vmware.com/scan-type: critical
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: hello-nodejs-gitops
     spec:
       containers:
-      - image: harborapp.dha-tkgdemo.net/tap-workloads/supply-chain/hello-nodejs-gitops-demo-app@sha256:556f814848926fdeb975df72d081cc431ef3e00a906111853fe4214aba7abbac
+      - image: harborapp.dha-tkgdemo.net/tap-workloads/supply-chain/hello-nodejs-gitops-demo-app@sha256:89616378f4685fd97bcb200c91fab1d2ef07e1f5ffaae0677b0db871d016ff8d
         name: workload
         resources: {}
         securityContext:
