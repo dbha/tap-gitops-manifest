@@ -1,0 +1,33 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-nodejs-kind
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+  labels:
+    app.kubernetes.io/part-of: hello-nodejs-kind
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: hello-nodejs-kind
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: appliveview-sample/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: hello-nodejs-kind
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: hello-nodejs-kind
+    spec:
+      containers:
+      - image: ghcr.io/dbha/workloads/hello-nodejs-kind-demo-app@sha256:7ce3dce6b32ec54fceff4909e17a04d61c9ee7b791c652a7f63cd30dcbaee1b2
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
